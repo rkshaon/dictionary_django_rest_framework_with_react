@@ -1,0 +1,1 @@
+# dictionary_django_rest_framework_with_react
