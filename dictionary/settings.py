@@ -14,6 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REACT_TEMP_DIR = os.path.join(BASE_DIR, 'dictionary_react/build')
+REACT_STATIC_DIR = os.path.join(BASE_DIR, 'dictionary_react/build/static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -58,7 +60,9 @@ ROOT_URLCONF = 'dictionary.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            REACT_TEMP_DIR,
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    REACT_STATIC_DIR,
+]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
